@@ -6,7 +6,7 @@
 }
 body {
     padding: 0 !important;
-    background: url("../img/4.jpg");
+    background: url("../img/main.jpg");
     background-size: cover;
 }
 a {
@@ -39,7 +39,7 @@ input {
     margin: 0.2em;
 }
 .modal-content {
-    background: url("../img/4.jpg");
+    background: url("../img/main.jpg");
     font-size: 2rem;
 }
 
