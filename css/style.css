@@ -19,8 +19,6 @@ nav {
 .navbar-brand {
     display: flex;
     align-items: center;
-}
-.navbar-brand {
     color: #ff933c;
 }
 .navbar-brand:hover, .navbar-brand:focus {
