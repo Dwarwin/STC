@@ -16,15 +16,15 @@ a {
 nav {
     background-color: rgba(000,000,000, 0.9);
 }
-nav a {
-    color: #ff933c;
-}
-nav a:hover {
-    color: #ff933c;
-}
 .navbar-brand {
     display: flex;
     align-items: center;
+}
+.navbar-brand a {
+    color: #ff933c;
+}
+.navbar-brand a:hover, .navbar-brand a:focus {
+    color: #ff933c;
 }
 .navbar-brand>img {
     height: 45px;
