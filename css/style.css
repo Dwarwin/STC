@@ -20,10 +20,10 @@ nav {
     display: flex;
     align-items: center;
 }
-.navbar-brand a {
+.navbar-brand {
     color: #ff933c;
 }
-.navbar-brand a:hover, .navbar-brand a:focus {
+.navbar-brand:hover, .navbar-brand:focus {
     color: #ff933c;
 }
 .navbar-brand>img {
