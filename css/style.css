@@ -16,10 +16,12 @@ a {
 nav {
     background-color: rgba(000,000,000, 0.9);
 }
+nav a {
+color: #ff933c;
+}
 .navbar-brand {
     display: flex;
-    align-items: center;
-    color: #ff933c;
+    align-items: center; 
 }
 .navbar-brand:hover, .navbar-brand:focus {
     color: #ff933c;
