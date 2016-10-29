@@ -43,6 +43,7 @@ input {
 }
 .modal {
     overflow: auto !important;
+}
 .modal-content {
     background: url("../img/main.jpg");
     font-size: 2rem;
