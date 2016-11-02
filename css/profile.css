@@ -1,0 +1,11 @@
+* {
+    font-family: "Book Antiqua", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 135%;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+body {
+    background: url("../img/main.jpg");
+    background-size: cover;
+}

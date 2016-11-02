@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <section class="container">
+        <header class="row">
+        <h1 class="page-header text-center">Edit Profile</h1>
+        </header>
+        <section class="row">
+            <!-- Avatar left column -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <figure class="text-center">
+                    <img src="img/no_ava.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                    <figcaption>Upload your photo</figcaption>
+                    <input type="file" class="text-center center-block well well-sm">
+                </figure>
+            </div>
+            <!-- Personal info -->
+            <section class="col-md-8 col-sm-6 col-xs-12 personal-info">
+                <h3>Personal info</h3>
+                <hr>
+                <form class="form-horizontal" role="form">
+                    <section class="form-group">
+                        <label for="username" class="col-md-3 control-label">Username:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="username" value="" type="text">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label for="firstName" class="col-lg-3 control-label">First name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" id="firstName" value="" type="text">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label for="secondName" class="col-lg-3 control-label">Last name:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" id="secondName" value="" type="text">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" value="" type="text">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label class="col-lg-3 control-label">Birthday:</label>
+                        <div class="col-lg-8">
+                            <input class="form-control" value="" type="date">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label class="col-md-3 control-label">Sex:</label>
+                        <div class="col-lg-8">
+                            <input type="radio" name="sex" value="Male" id="male"/>
+                            <label for="male">Male</label>
+                            <input type="radio" name="sex" value="Female" id="female"/>
+                            <label for="female">Female</label>
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label class="col-md-3 control-label">Password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" value="" type="password">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label class="col-md-3 control-label">Confirm password:</label>
+                        <div class="col-md-8">
+                            <input class="form-control" value="" type="password">
+                        </div>
+                    </section>
+                    <section class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <button class="btn btn-primary" >Save Changes</button>
+                                <span></span>
+                            <button class="btn btn-default" type="reset">Cancel</button>
+                        </div>
+                    </section>
+                    <hr>
+                </form>
+            </section>
+        </section>
+    </section>
+</body>
+</html>
