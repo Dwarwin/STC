@@ -38,8 +38,8 @@ nav a {
 label {
     margin: 0.2em;
 }
-input {
-    margin: 0.2em;
+.input-group {
+    margin-bottom: 5px;
 }
 .modal {
     overflow: auto !important;
