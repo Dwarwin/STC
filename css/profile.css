@@ -6,6 +6,13 @@
     font-size: 1.5rem;
 }
 body {
+    margin-top: 20px;
     background: url("../img/main.jpg");
     background-size: cover;
+}
+td {
+    overflow: auto;
+}
+tr:nth-child(even) {
+    background-color: #eeeeee;
 }
