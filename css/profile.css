@@ -16,3 +16,9 @@ td {
 tr:nth-child(even) {
     background-color: #eeeeee;
 }
+.alert-success {
+    display: none;
+}
+.alert-danger {
+    display: none;
+}
