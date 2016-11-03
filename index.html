@@ -49,13 +49,22 @@
                     <form class="form-signin" method="post" action="#">
                         <label for="username">Username:</label>
                         <input class="form-control" type="text" name="username" placeholder="Your Username"
-                               id="username" required/>
+                               id="username" required
+                               pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$"
+                               title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
+                               can be used but not ends with them"/>
                         <label for="firstName">Firstr Name:</label>
                         <input class="form-control" type="text" name="firstName" placeholder="First Name"
-                               id="firstName" required/>
+                               id="firstName" required
+                               pattern="(?=^.{2,20}$)^[A-Z][a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$"
+                               title="Starts with uppercase letter, from 2 to 20 symbols,
+                               can be separated by space or -"/>
                         <label for="secondName">Second Name:</label>
                         <input class="form-control" type="text" name="secondName" placeholder="Second Name"
-                               id="secondName" required/>
+                               id="secondName" required
+                               pattern="(?=^.{2,20}$)^[A-Z][a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$"
+                               title="Starts with uppercase letter, from 2 to 20 symbols,
+                               can be separated by space or -"/>/>
                         <label for="pswrd">Password:</label>
                         <input class="form-control" type="password" name="pswrd" placeholder="Enter your password"
                                id="pswrd" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -91,7 +100,7 @@
                         <span class="fa fa-twitter"></span> Sign up with Twitter
                     </a>
                     <a class="btn btn-block btn-social btn-google">
-                        <span class="fa fa-google"></span> Sign up with Google
+                        <span class="fa fa-google"></span> Sign up with Google+
                     </a>
                 </footer>
             </section>

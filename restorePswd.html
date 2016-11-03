@@ -20,11 +20,16 @@
             <form class="forgot-form" role="form">
                 <section class="input-group form-inline">
                     <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span></label>
-                    <input type="email" class="form-control" placeholder="Enter your Username" required="required">
+                    <input type="text" class="form-control" placeholder="Enter your Username" required
+                           pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$"
+                           title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
+                               can be used but not ends with them"/>/>
                 </section>
                 <section class="input-group form-inline">
                     <label class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></label>
-                    <input type="email" class="form-control" placeholder="Enter your Email" required="required">
+                    <input type="email" class="form-control" placeholder="Enter your Email"
+                           required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                           title="Wrong email format"/>
                 </section>
                 <a class="btn btn-default pull-left " href="index.html">Back</a>
                 <button type="submit" class="btn btn-primary pull-right ">Submit</button>
