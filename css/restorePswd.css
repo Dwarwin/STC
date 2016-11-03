@@ -16,3 +16,12 @@ body {
 .input-group {
     margin-bottom: 10px;
 }
+.alert {
+    margin-top: 50px;
+}
+.alert-success {
+    display: none;
+}
+.alert-danger {
+    display: none;
+}
