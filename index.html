@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/common.js"></script>
 </head>
 <body>
 
@@ -46,48 +47,80 @@
                     <h2 class="modal-title">Please sign up</h2>
                 </header>
                 <section class="modal-body">
-                    <form class="form-signin" method="post" action="#">
-                        <label for="username">Username:</label>
-                        <input class="form-control" type="text" name="username" placeholder="Your Username"
-                               id="username" required
-                               pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$"
-                               title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
-                                   can be used but not ends with them"/>
-                        <label for="firstName">Firstr Name:</label>
-                        <input class="form-control" type="text" name="firstName" placeholder="First Name"
-                               id="firstName" required
-                               pattern="(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$"
-                               title="Starts with uppercase letter, from 2 to 20 symbols,
-                                   can be separated by space or -"/>
-                        <label for="secondName">Second Name:</label>
-                        <input class="form-control" type="text" name="secondName" placeholder="Second Name"
-                               id="secondName" required
-                               pattern="(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$"
-                               title="Starts with uppercase letter, from 2 to 20 symbols,
-                                   can be separated by space or -"/>
-                        <label for="pswrd">Password:</label>
-                        <input class="form-control" type="password" name="pswrd" placeholder="Enter your password"
-                               id="pswrd" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                               title="Must contain at least one number and one uppercase and lowercase letter,
-                                   and at least 8 or more characters"/>
-                        <label for="email">Email:</label>
-                        <input class="form-control" type="email" name="email" placeholder="Enter your email" id="email"
-                               required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                               title="Wrong email format"/>
-                        <label for="bday">Birth date:</label>
-                        <input class="form-control" type="date" name="bday" id="bday" placeholder="dd.mm.yyyy"
-                               required pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
-                               title="Invalid date format"/>
+                    <form class="form-horizontal" onsubmit="return onFormSubmit();" novalidate method="post" action="#">
                         <section class="form-group">
-                            <label>Sex:</label>
-                            <input type="radio" name="sex" value="Male" id="male" checked/>
-                            <label for="male">Male</label>
-                            <input type="radio" name="sex" value="Female" id="female"/>
-                            <label for="female">Female</label>
+                            <label for="username" class="col-lg-3 control-label">Username:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="username" value="" type="text" name="username"
+                                       pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$" required
+                                       title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
+                                           can be used but not ends with them" placeholder="Enter your Username"/>
+                            </div>
                         </section>
-                        <input type="checkbox" id="terms" required/>
+                        <section class="form-group">
+                            <label for="firstName" class="col-lg-3 control-label">First name:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="firstName" value="" type="text" name="firstName"
+                                       pattern="(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$" required
+                                       title="Starts with uppercase letter, from 2 to 20 symbols,
+                                           can be separated by space or -" placeholder="Enter your First name"/>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label for="lastName" class="col-lg-3 control-label">Last name:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="lastName" value="" type="text" name="lastName"
+                                       pattern="(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$" required
+                                       title="Starts with uppercase letter, from 2 to 20 symbols,
+                                           can be separated by space or -" placeholder="Enter your Last name"/>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label for="email" class="col-lg-3 control-label">Email:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="email" value="" type="text" name="email"
+                                       required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                                       title="Wrong email format" placeholder="Enter your Email"/>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label for="bday" class="col-lg-3 control-label">Birthday:</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="bday" value="" type="text" name="bday"
+                                       required pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
+                                       title="Invalid date format" placeholder="dd.mm.yyyy"/>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label class="col-md-3 control-label">Sex:</label>
+                            <div class="col-lg-9">
+                                <input type="radio" name="sex" value="Male" id="male" checked/>
+                                <label for="male">Male</label>
+                                <input type="radio" name="sex" value="Female" id="female"/>
+                                <label for="female">Female</label>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label for="pswd" class="col-md-3 control-label">Password:</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="pswd" value="" type="password" name="pswd"
+                                       required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                       title="Must contain at least one number and one uppercase and lowercase letter,
+                                           and at least 6 or more characters" placeholder="Enter your Password"/>
+                            </div>
+                        </section>
+                        <section class="form-group">
+                            <label for="repswd" class="col-md-3 control-label">Confirm password:</label>
+                            <div class="col-md-9">
+                                <input class="form-control" id="repswd" value="" type="password" name="repswd"
+                                       required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                                       title="Passwords are not equal" placeholder="Confirm your Password"/>
+                            </div>
+                        </section>
+                        <input type="checkbox" id="terms" required value="Confirm"/>
                         <label for="terms">I accept the <a href="#">terms and conditions</a></label>
-                        <button class="btn btn-lg btn-primary btn-block" id="signin-btn" type="submit">Submit</button>
+                        <button class="btn btn-lg btn-primary btn-block" id="signin-btn" type="submit">Submit
+                        </button>
                         <a data-toggle="modal" data-target="#login-modal"
                            data-dismiss="modal">Already have an account?</a>
                     </form>
@@ -104,7 +137,6 @@
                     </a>
                 </footer>
             </section>
-
         </div>
     </section>
 
@@ -119,7 +151,7 @@
                     <h2 class="modal-title">Please sign in</h2>
                 </header>
                 <section class="modal-body">
-                    <form class="form-signin" method="post" action="#">
+                    <form class="form-horizontal" method="post" action="#">
                         <section class="input-group form-inline">
                             <label class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                             </label>
@@ -130,9 +162,9 @@
                         <section class="input-group form-inline">
                             <label class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></label>
                             <input type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                   required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                   required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                    title="Must contain at least one number and one uppercase and lowercase letter,
-                                           and at least 8 or more characters"/>
+                                               and at least 6 or more characters"/>
                         </section>
                         <section class="checkbox">
                             <label>
@@ -239,7 +271,7 @@
                 <p><em><span class="glyphicon glyphicon-map-marker"></span> 000000, City, Street, of. <br>
                     <span class="glyphicon glyphicon-phone"></span>
                     (044) 000 00 00 <br><span class="glyphicon glyphicon-envelope">
-                        </span> company@gmail.com</em></p>
+                            </span> company@gmail.com</em></p>
             </section>
             <section class="col-md-4">
                 <h3>Information</h3>

@@ -16,9 +16,8 @@ td {
 tr:nth-child(even) {
     background-color: #eeeeee;
 }
-.alert-success {
-    display: none;
-}
-.alert-danger {
-    display: none;
+.tooltip-inner {
+    font-size: 14px;
+    min-width: 100px;
+    max-width: 100%;
 }
