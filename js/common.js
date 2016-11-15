@@ -52,6 +52,7 @@ function onFormSubmit() {
         errorMessage = username.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(username).tooltip('destroy')
     }
     if (!validateFirstName(firstName.value)) {
         var errorMessage = firstName.parentNode;
@@ -66,6 +67,7 @@ function onFormSubmit() {
         errorMessage = firstName.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(firstName).tooltip('destroy')
     }
     if (!validateLastname(lastName.value)) {
         var errorMessage = lastName.parentNode;
@@ -80,6 +82,7 @@ function onFormSubmit() {
         errorMessage = lastName.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(lastName).tooltip('destroy')
     }
     if (!validateEmail(email.value)) {
         var errorMessage = email.parentNode;
@@ -94,6 +97,7 @@ function onFormSubmit() {
         errorMessage = email.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(email).tooltip('destroy')
     }
     if (!validateBday(bday.value)) {
         var errorMessage = bday.parentNode;
@@ -108,6 +112,7 @@ function onFormSubmit() {
         errorMessage = bday.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(bday).tooltip('destroy')
     }
     if (!validatePswd(pswd.value)) {
         var errorMessage = pswd.parentNode;
@@ -122,6 +127,7 @@ function onFormSubmit() {
         errorMessage = pswd.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(pswd).tooltip('destroy')
     }
     if (repswd.value != pswd.value || pswd.value == "") {
         var errorMessage = repswd.parentNode;
@@ -136,6 +142,7 @@ function onFormSubmit() {
         errorMessage = repswd.parentNode;
         errorMessage.classList.remove('has-error');
         errorMessage.classList.add('has-success');
+        $(repswd).tooltip('destroy')
     }
     if (success != null || error != null) {
         if (!result) {
@@ -184,6 +191,10 @@ $(document).ready(function() {
 
     $(".file-upload").on('change', function(){
         readURL(this);
+    });
+
+    $("input").on('change', function(){
+        onFormSubmit(this);
     });
 
 });
