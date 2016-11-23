@@ -1,8 +1,8 @@
 // Avatar change
 
-$(document).ready(function() {
+$(document).ready(function () {
 
-    var readURL = function(input) {
+    var readURL = function (input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
         }
     }
 
-    $(".file-upload").on('change', function(){
+    $(".file-upload").on('change', function () {
         readURL(this);
     });
 
@@ -29,11 +29,11 @@ function ajaxReq(requestObject, action, modalTxt) {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(requestObject));
 
-    xhr.onerror = function() {
+    xhr.onerror = function () {
         modalPopup(modalTxt, 'Server connect error: ' + xhr.status);
     }
 
-    xhr.onload = function() {
+    xhr.onload = function () {
         var response = JSON.parse(xhr.responseText);
 
         if (this.status == 401) {
@@ -68,7 +68,8 @@ function ajaxReq(requestObject, action, modalTxt) {
             modalPopup(modalTxt, 'Authorization successful');
 
             setTimeout(redir, 3000, 'index.html');
-        };
+        }
+        ;
     }
 
 }
@@ -78,7 +79,9 @@ function modalPopup(modalTxt, modalMsg) {
     $('#popup').modal('show');
 }
 
-function redir(url){window.location.href = url;}
+function redir(url) {
+    window.location.href = url;
+}
 
 function logOut() {
     if (localStorage.acessToken) delete localStorage.acessToken;
@@ -115,7 +118,7 @@ function regSubmit() {
         return x.test(pswd);
     }
 
-    var regForm=document.getElementById('reg-form');
+    var regForm = document.getElementById('reg-form');
     var modalTxt = document.getElementById("modalTxt");
 
     var result = true;
@@ -280,7 +283,7 @@ function regSubmit() {
 
 function logSubmit() {
 
-    var logForm=document.getElementById('login-form');
+    var logForm = document.getElementById('login-form');
     var modalTxt = document.getElementById("modalTxt");
 
     var validateUserame = function (inputUsername) {
@@ -340,15 +343,17 @@ function logSubmit() {
 
 // Reset Button
 
-$("button[type='reset']").on('click', function(){
+$("button[type='reset']").on('click', function () {
     var error = document.getElementById('alertErr');
     var success = document.getElementById('alertSuc');
     var er = document.getElementsByClassName('has-error');
     var suc = document.getElementsByClassName('has-success');
-    while (er.length>0){
-        er[0].classList.remove('has-error');}
-    while (suc.length>0){
-        suc[0].classList.remove('has-success');}
+    while (er.length > 0) {
+        er[0].classList.remove('has-error');
+    }
+    while (suc.length > 0) {
+        suc[0].classList.remove('has-success');
+    }
     error.classList.add('hidden');
     success.classList.add('hidden');
 });
