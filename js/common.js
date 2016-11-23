@@ -59,8 +59,11 @@ function ajaxReq(requestObject, action, modalTxt) {
         else if (this.status == 200 && !response.isLocked &&
             response.createdDate) {
             modalPopup(modalTxt, 'Registration successful');
-
-            setTimeout(redir, 2000, 'index.html');
+            setTimeout(function() {
+                $('#servMsg').modal('hide');
+                $('#reg-modal').modal('hide');
+                $('#login-modal').modal('show');
+            }, 2000);
         }
 
         else if (this.status == 200 && response.access_token) {
@@ -253,8 +256,6 @@ function regSubmit() {
     if (terms != null) {
         if (!terms.checked) {
             var errorMessage = repswd.parentNode;
-            errorMessage.classList.remove('has-success');
-            errorMessage.classList.add('has-error');
             $(terms).tooltip({
                 trigger: 'toggle',
                 placement: 'top',
