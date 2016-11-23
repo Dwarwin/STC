@@ -38,7 +38,7 @@ function ajaxReq(requestObject, action, modalTxt) {
 
         if (this.status == 401) {
             modalPopup(modalTxt, 'Session time ended');
-            setTimeout(logOut, 3000);
+            setTimeout(logOut, 2000);
         }
 
         else if (this.status == 404 &&
@@ -60,23 +60,22 @@ function ajaxReq(requestObject, action, modalTxt) {
             response.createdDate) {
             modalPopup(modalTxt, 'Registration successful');
 
-            setTimeout(redir, 3000, 'index.html');
+            setTimeout(redir, 2000, 'index.html');
         }
 
         else if (this.status == 200 && response.access_token) {
             localStorage.acessToken = response.access_token;
             modalPopup(modalTxt, 'Authorization successful');
 
-            setTimeout(redir, 3000, 'index.html');
+            setTimeout(redir, 2000, 'index.html');
         }
-        ;
     }
 
 }
 
 function modalPopup(modalTxt, modalMsg) {
     modalTxt.innerHTML = modalMsg;
-    $('#popup').modal('show');
+    $('#servMsg').modal('show');
 }
 
 function redir(url) {
@@ -85,7 +84,7 @@ function redir(url) {
 
 function logOut() {
     if (localStorage.acessToken) delete localStorage.acessToken;
-    redir('login.html');
+    redir('index.html');
 }
 
 // Validate registration / change profile
@@ -329,6 +328,7 @@ function logSubmit() {
         errorMessage.classList.add('has-success');
         $(pswd).tooltip('destroy')
     }
+
     if (result) {
         var requestObject = {
             login: username.value,
