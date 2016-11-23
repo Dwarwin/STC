@@ -291,7 +291,7 @@ function logSubmit() {
         return x.test(inputUsername);
     }
     var validatePswd = function (inputPassword) {
-        var x = /[a-zA-Z]/;
+        var x = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         return x.test(inputPassword);
     }
 
