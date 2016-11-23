@@ -47,7 +47,7 @@
                     <h2 class="modal-title">Please sign up</h2>
                 </header>
                 <section class="modal-body">
-                    <form class="form-horizontal" onsubmit="return onFormSubmit();" novalidate method="post" action="#">
+                    <form id="reg-form" class="form-horizontal" onsubmit="return regSubmit();" novalidate method="post" action="http://es-auction.herokuapp.com/api/auth/register">
                         <section class="form-group">
                             <label for="username" class="col-lg-3 control-label">Username:</label>
                             <div class="col-lg-9">
@@ -151,13 +151,14 @@
                     <h2 class="modal-title">Please sign in</h2>
                 </header>
                 <section class="modal-body">
-                    <form class="form-horizontal" method="post" action="#">
+                    <form id="login-form" class="form-horizontal" onsubmit="return logSubmit();" method="post" action="http://es-auction.herokuapp.com/api/auth/login" novalidate>
                         <section class="input-group form-inline">
-                            <label class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                            <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                             </label>
-                            <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                   required autofocus="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                                   title="Wrong email format"/>
+                            <input class="form-control" id="inputUsername" value="" type="text" name="inputUsername"
+                                   pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$" required
+                                   title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
+                                          can be used but not ends with them" placeholder="Enter your Username"/>
                         </section>
                         <section class="input-group form-inline">
                             <label class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></label>
@@ -171,7 +172,7 @@
                                 <input type="checkbox" value="remember-me"/> Remember me
                             </label>
                         </section>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                        <button id="anc-login" data-target="#popup" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
                         <a data-toggle="modal" data-target="#reg-modal"
                            data-dismiss="modal">Register</a>
                         <a class="pull-right" href="restorePswd.html">Forgot password?</a>
@@ -188,6 +189,19 @@
                         <span class="fa fa-google"></span> Sign in with Google
                     </a>
                 </footer>
+            </section>
+        </div>
+    </section>
+
+    <section class="modal fade" id="popup" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <section class="modal-content">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 id="modalTxt"></h3>
+                </div>
             </section>
         </div>
     </section>
