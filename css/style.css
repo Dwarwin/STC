@@ -31,9 +31,10 @@ nav a {
     width: auto;
     margin-right: 10px;
 }
-.nav>li>a:focus, .nav>li>a:hover {
+.nav>li a:focus, .nav>li a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
     color: #ffdc99;
     background-color: rgba(000,000,000, 0.9);
+    border: 1px solid black;
 }
 .modal {
     overflow: auto !important;

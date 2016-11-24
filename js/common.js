@@ -2,6 +2,8 @@
 
 $(document).ready(function () {
 
+
+
     var readURL = function (input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -18,6 +20,20 @@ $(document).ready(function () {
         readURL(this);
     });
 
+        var regBtn = document.getElementById('regBtn');
+        var logBtn = document.getElementById('logBtn');
+        var userPanel = document.getElementById('userPanel');
+        if (regBtn != null && logBtn != null && userPanel != null) {
+            if (localStorage.accessToken && regBtn != null && logBtn != null && userPanel != null) {
+                regBtn.classList.add('hidden');
+                logBtn.classList.add('hidden');
+                userPanel.classList.remove('hidden');
+            } else {
+                regBtn.classList.remove('hidden');
+                logBtn.classList.remove('hidden');
+                userPanel.classList.add('hidden');
+            }
+        }
 });
 
 // Request to server
@@ -67,7 +83,7 @@ function ajaxReq(requestObject, action, modalTxt) {
         }
 
         else if (this.status == 200 && response.access_token) {
-            localStorage.acessToken = response.access_token;
+            localStorage.accessToken = response.access_token;
             modalPopup(modalTxt, 'Authorization successful');
 
             setTimeout(redir, 2000, 'index.html');
@@ -86,7 +102,7 @@ function redir(url) {
 }
 
 function logOut() {
-    if (localStorage.acessToken) delete localStorage.acessToken;
+    if (localStorage.accessToken) delete localStorage.accessToken;
     redir('index.html');
 }
 
