@@ -1,29 +1,141 @@
-var validateUserame = function (username) {
-    var x = /(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$/;
-    return x.test(username);
-}
-var validateFirstName = function (firstName) {
-    var x = /(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$/;
-    return x.test(firstName);
-}
-var validateLastname = function (lastName) {
-    var x = /(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$/;
-    return x.test(lastName);
-}
-var validateEmail = function (email) {
-    var x = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
-    return x.test(email);
-}
-var validateBday = function (bday) {
-    var x = /(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d/;
-    return x.test(bday);
-}
-var validatePswd = function (pswd) {
-    var x = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
-    return x.test(pswd);
+// Avatar change
+
+$(document).ready(function () {
+
+    var readURL = function (input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.img-thumbnail').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(".file-upload").on('change', function () {
+        readURL(this);
+    });
+
+    var regBtn = document.getElementById('regBtn');
+    var logBtn = document.getElementById('logBtn');
+    var userPanel = document.getElementById('userPanel');
+    if (regBtn != null && logBtn != null && userPanel != null) {
+        if (localStorage.accessToken && regBtn != null && logBtn != null && userPanel != null) {
+            regBtn.classList.add('hidden');
+            logBtn.classList.add('hidden');
+            userPanel.classList.remove('hidden');
+        } else {
+            regBtn.classList.remove('hidden');
+            logBtn.classList.remove('hidden');
+            userPanel.classList.add('hidden');
+        }
+    }
+});
+
+// Request to server
+
+function ajaxReq(requestObject, action, modalTxt) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('POST', action);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(requestObject));
+
+    xhr.onerror = function () {
+        modalPopup(modalTxt, 'Server connect error: ' + xhr.status);
+    };
+
+    xhr.onload = function () {
+        var response = JSON.parse(xhr.responseText);
+
+        if (this.status == 401) {
+            modalPopup(modalTxt, 'Session time ended');
+            setTimeout(logOut, 2000);
+        }
+
+        else if (this.status == 404 &&
+            response.errorMessage == "User not found") {
+            modalPopup(modalTxt, 'Authorization error: ' +
+                'wrong username or password');
+        }
+
+        else if (this.status == 500 &&
+            response.errorMessage == "User already exist") {
+            modalPopup(modalTxt, 'User already exist');
+        }
+
+        else if (this.status == 500) {
+            modalPopup(modalTxt, 'Server error: ' + this.status);
+        }
+
+        else if (this.status == 200 && !response.isLocked &&
+            response.createdDate) {
+            modalPopup(modalTxt, 'Registration successful');
+            setTimeout(function () {
+                $('#servMsg').modal('hide');
+                $('#reg-modal').modal('hide');
+                $('#login-modal').modal('show');
+            }, 2000);
+        }
+
+        else if (this.status == 200 && response.access_token) {
+            localStorage.accessToken = response.access_token;
+            modalPopup(modalTxt, 'Authorization successful');
+
+            setTimeout(redir, 2000, 'index.html');
+        }
+    }
+
 }
 
-function onFormSubmit() {
+function modalPopup(modalTxt, modalMsg) {
+    modalTxt.innerHTML = modalMsg;
+    $('#servMsg').modal('show');
+}
+
+function redir(url) {
+    window.location.href = url;
+}
+
+function logOut() {
+    if (localStorage.accessToken) delete localStorage.accessToken;
+    redir('index.html');
+}
+
+// Validate registration / change profile
+
+function regSubmit() {
+// RegEX validation
+
+    var validateUserame = function (username) {
+        var x = /(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$/;
+        return x.test(username);
+    }
+    var validateFirstName = function (firstName) {
+        var x = /(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$/;
+        return x.test(firstName);
+    }
+    var validateLastname = function (lastName) {
+        var x = /(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$/;
+        return x.test(lastName);
+    }
+    var validateEmail = function (email) {
+        var x = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/;
+        return x.test(email);
+    }
+    var validateBday = function (bday) {
+        var x = /(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d/;
+        return x.test(bday);
+    }
+    var validatePswd = function (pswd) {
+        var x = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        return x.test(pswd);
+    }
+
+    var regForm = document.getElementById('reg-form');
+    var modalTxt = document.getElementById("modalTxt");
 
     var result = true;
     var username = document.getElementById('username');
@@ -158,8 +270,6 @@ function onFormSubmit() {
     if (terms != null) {
         if (!terms.checked) {
             var errorMessage = repswd.parentNode;
-            errorMessage.classList.remove('has-success');
-            errorMessage.classList.add('has-error');
             $(terms).tooltip({
                 trigger: 'toggle',
                 placement: 'top',
@@ -170,31 +280,95 @@ function onFormSubmit() {
             $(terms).tooltip('hide');
         }
     }
+    if (result) {
+        var requestObject = {
+            login: username.value,
+            email: email.value,
+            password: pswd.value
+        };
+        ajaxReq(requestObject, regForm.action, modalTxt);
+
+    }
+    result = false;
     return result;
 }
 
-$(document).ready(function() {
+// Login validation
 
+function logSubmit() {
 
-    var readURL = function(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    var logForm = document.getElementById('login-form');
+    var modalTxt = document.getElementById("modalTxt");
 
-            reader.onload = function (e) {
-                $('.img-thumbnail').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
+    var validateUserame = function (inputUsername) {
+        var x = /(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$/;
+        return x.test(inputUsername);
+    }
+    var validatePswd = function (inputPassword) {
+        var x = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+        return x.test(inputPassword);
     }
 
+    var result = true;
+    var username = document.getElementById('inputUsername');
+    var pswd = document.getElementById('inputPassword');
 
-    $(".file-upload").on('change', function(){
-        readURL(this);
-    });
+    if (!validateUserame(username.value)) {
+        var errorMessage = username.parentNode;
+        errorMessage.classList.remove('has-success');
+        errorMessage.classList.add('has-error');
+        $(username).tooltip({
+            trigger: 'toggle',
+            placement: 'top'
+        }).tooltip('hide');
+        result = false;
+    } else {
+        errorMessage = username.parentNode;
+        errorMessage.classList.remove('has-error');
+        errorMessage.classList.add('has-success');
+        $(username).tooltip('destroy')
+    }
+    if (!validatePswd(pswd.value)) {
+        var errorMessage = pswd.parentNode;
+        errorMessage.classList.remove('has-success');
+        errorMessage.classList.add('has-error');
+        $(pswd).tooltip({
+            trigger: 'toggle',
+            placement: 'top'
+        }).tooltip('hide');
+        result = false;
+    } else {
+        errorMessage = pswd.parentNode;
+        errorMessage.classList.remove('has-error');
+        errorMessage.classList.add('has-success');
+        $(pswd).tooltip('destroy')
+    }
 
-    $("input").on('change', function(){
-        onFormSubmit(this);
-    });
+    if (result) {
+        var requestObject = {
+            login: username.value,
+            password: pswd.value
+        };
+        ajaxReq(requestObject, logForm.action, modalTxt);
 
+    }
+    result = false;
+    return result;
+}
+
+// Reset Button
+
+$("button[type='reset']").on('click', function () {
+    var error = document.getElementById('alertErr');
+    var success = document.getElementById('alertSuc');
+    var er = document.getElementsByClassName('has-error');
+    var suc = document.getElementsByClassName('has-success');
+    while (er.length > 0) {
+        er[0].classList.remove('has-error');
+    }
+    while (suc.length > 0) {
+        suc[0].classList.remove('has-success');
+    }
+    error.classList.add('hidden');
+    success.classList.add('hidden');
 });
