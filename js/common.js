@@ -81,7 +81,6 @@ function ajaxReq(requestObject, action, modalTxt, remember_me) {
         }
 
         else if (this.status == 200 && response.access_token) {
-            // var remember_me = document.getElementById('remember_me');
             if (remember_me.checked) {
                 localStorage.accessToken = response.access_token;
             }
