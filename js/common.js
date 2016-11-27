@@ -22,7 +22,7 @@ $(document).ready(function () {
     var logBtn = document.getElementById('logBtn');
     var userPanel = document.getElementById('userPanel');
     if (regBtn != null && logBtn != null && userPanel != null) {
-        if (localStorage.accessToken && regBtn != null && logBtn != null && userPanel != null) {
+        if (localStorage.accessToken || sessionStorage.accessToken && regBtn != null && logBtn != null && userPanel != null) {
             regBtn.classList.add('hidden');
             logBtn.classList.add('hidden');
             userPanel.classList.remove('hidden');
@@ -36,7 +36,7 @@ $(document).ready(function () {
 
 // Request to server
 
-function ajaxReq(requestObject, action, modalTxt) {
+function ajaxReq(requestObject, action, modalTxt, remember_me) {
     var xhr = new XMLHttpRequest();
 
     xhr.open('POST', action);
@@ -81,13 +81,18 @@ function ajaxReq(requestObject, action, modalTxt) {
         }
 
         else if (this.status == 200 && response.access_token) {
-            localStorage.accessToken = response.access_token;
+            if (remember_me.checked) {
+                localStorage.accessToken = response.access_token;
+            }
+            else {
+                sessionStorage.accessToken = response.access_token;
+            }
+
             modalPopup(modalTxt, 'Authorization successful');
 
             setTimeout(redir, 2000, 'index.html');
         }
     }
-
 }
 
 function modalPopup(modalTxt, modalMsg) {
@@ -101,6 +106,7 @@ function redir(url) {
 
 function logOut() {
     if (localStorage.accessToken) delete localStorage.accessToken;
+    if (sessionStorage.accessToken) delete sessionStorage.accessToken;
     redir('index.html');
 }
 
@@ -299,6 +305,7 @@ function logSubmit() {
 
     var logForm = document.getElementById('login-form');
     var modalTxt = document.getElementById("modalTxt");
+    var remember_me = document.getElementById("remember_me");
 
     var validateUserame = function (inputUsername) {
         var x = /(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$/;
@@ -349,7 +356,7 @@ function logSubmit() {
             login: username.value,
             password: pswd.value
         };
-        ajaxReq(requestObject, logForm.action, modalTxt);
+        ajaxReq(requestObject, logForm.action, modalTxt, remember_me);
 
     }
     result = false;
