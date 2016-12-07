@@ -1,0 +1,100 @@
+{
+  "lots":[
+    {
+      "id":0,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":1,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":2,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":3,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":4,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":5,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":6,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":7,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":8,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":9,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":10,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    },
+    {
+      "id":11,
+      "name":"",
+      "description": "",
+      "brand": "",
+      "OS": "",
+      "Screen Size": ""
+    }
+  ]
+}

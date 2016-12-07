@@ -1,0 +1,122 @@
+* {
+    font-family: "Book Antiqua", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 135%;
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    padding: 0 !important;
+    background: url("../img/main.jpg");
+    background-size: cover;
+}
+a {
+    cursor: pointer;
+}
+
+nav {
+    background-color: rgba(000,000,000, 0.9);
+}
+nav a {
+    color: #ff933c;
+}
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+.navbar-brand:hover, .navbar-brand:focus {
+    color: #ff933c;
+}
+.navbar-brand>img {
+    height: 45px;
+    width: auto;
+    margin-right: 10px;
+}
+.nav .btn {
+    font-size: 16px;
+}
+.nav>li a:focus, .nav>li a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    color: #ffdc99;
+    background-color: rgba(000,000,000, 0.9);
+    border: 1px solid black;
+}
+.modal {
+    overflow: auto !important;
+}
+.modal-content {
+    background: url("../img/main.jpg");
+    font-size: 1.5rem;
+}
+.form-group label {
+    font-size: 1.7rem;
+}
+.tooltip-inner {
+    font-size: 14px;
+    min-width: 100px;
+    max-width: 100%;
+}
+
+.jumbotron {
+    background: none;
+}
+.jumbotron h1 {
+    color: #ff4100;
+    font-size: 86px;
+    font-weight: bold;
+}
+@media(max-width: 720px) {
+    .jumbotron h1 {
+        font-size: 48px;
+    }
+    .navbar-nav .open .dropdown-menu{
+        background-color: white;
+    }
+}
+.jumbotron p {
+    color: #000000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+section.container h2{
+    font-size: 48px;
+    font-weight: bold;
+}
+section.container figcaption {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff4d00;
+}
+
+article.col-md-4{
+    margin-bottom: 20px;
+}
+article.col-md-4 h3{
+    font-size: 26px;
+    font-weight: 700;
+}
+article.col-md-4 p{
+    text-align: justify;
+    font-size: 16px;
+}
+article.col-md-4 a{
+    float: right;
+}
+footer.container-fluid {
+    background-color: rgba(000,000,000, 0.9);
+}
+footer.container-fluid h3 {
+    color: #ff7217;
+}
+footer.container-fluid p {
+    color: #ffdc99;
+}
+footer.container-fluid a:not(.btn) {
+     color: #ffdc99;
+}
+footer.container-fluid a:hover:not(.btn) {
+    color: #ff0000;
+    text-decoration: none;
+}
+#copyright {
+    color: #b0b0b0;
+}
