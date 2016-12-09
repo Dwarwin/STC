@@ -1,100 +1,68 @@
 {
-  "lots":[
+  "lots": [
     {
-      "id":0,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 0,
+      "name": "Apple iPad Air 2",
+      "description": "The iPad Air is amazingly powerful yet so thin and light you'll forget it's there. Retina display - features over three million pixels for a more crisp and vibrant experience. With 64GB memory capacity you will have plenty of space for pictures, videos and music - and then some.",
+      "brand": "Apple",
+      "OS": "IOS",
+      "Screen Size": "9.7\""
     },
     {
-      "id":1,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 1,
+      "name": "Lenovo Tab 2",
+      "description": "The Lenovo Tab 2 has everything you need from a tablet at an affordable price. Big on entertainment with a stunning 10.1\" HD display and dual speakers booming with Dolby Atmos technology. 16 GB of internal storage for all your music, plus a micro SD slot so you can expand your storage up to 64GB. Perfect for gaming, music and watching movies.",
+      "brand": "Lenovo",
+      "OS": "Android",
+      "Screen Size": "10.1\""
     },
     {
-      "id":2,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 2,
+      "name": "Amazon Fire 7",
+      "description": "Made to be used. Read, watch and play, all on a stunning 7 inch IPS display. Fast 1.3 GHz quad core processor lets you launch apps quickly. Comes with 8GB of storage and expandable memory up to 128GB. Snap photos or video with rear and front facing cameras without worrying about running out of space. With 7 hours of battery life you'll have plenty of power to read the latest bestseller.",
+      "brand": "Amazon",
+      "OS": "FireOS",
+      "Screen Size": "7\""
     },
     {
-      "id":3,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 3,
+      "name": "Acer Iconia Tab 8",
+      "description": "Meet the Acer Iconia Tab 8 W, a full Windows 10 tablet for work and play. It's light, thin and fast, designed to be your daily life companion. With both grab-and-go convenience and great media features, it's fully capable for all your professional and private needs.",
+      "brand": "Acer",
+      "OS": "Windows",
+      "Screen Size": "8\""
     },
     {
-      "id":4,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 4,
+      "name": "Acer Iconia Tab10",
+      "description": "Browse the web like never before with the impressive Acer Iconia Tab 10 Full HD 10.1 inch. Four powerful speakers with DTS-HD Premium Sound bring you unbeatable sound. Stunning IPS touch screen with anti-fingerprint, means you have perfect visuals from every angle and no annoying smears. The Tab 10's delivers the most accurate touch and writing experience yet, allowing you to play, write and sketch with incredible precision, even using a pencil.",
+      "brand": "Acer",
+      "OS": "Android",
+      "Screen Size": "10.1\""
     },
     {
-      "id":5,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 5,
+      "name": "Lenovo YOGA Tab 3",
+      "description": "The Ultimate Entertainment Tablet - Now with a best-in-class rotatable camera, up to 20 hours of battery life and Anypen technology to let you do even more. Scroll through recipes while you cook, check your social feeds while you eat, and watch movies while you work out. The unique kickstand works in four ways to Stand, Tilt, Hold or even Hang the Yoga Tab 3 8 to a way that suits you.",
+      "brand": "Lenovo",
+      "OS": "Android",
+      "Screen Size": "8\""
     },
     {
-      "id":6,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 6,
+      "name": "Samsung Galaxy Tab A",
+      "description": "The Galaxy Tab A's 7-inch TFT touchscreen has curved edges and nonslip backing, make it comfortable to grip and practical for everyday use. Never miss a moment with autofocus camera. Select from fun effects like animated GIFs and panoramas, bringing your photography alive. Keep going for longer with an impressive 11 hours battery life. Plus with the ability to up your storage to a massive 200GB micro SD card, you can keep all the content you could ever wish for.",
+      "brand": "Samsung",
+      "OS": "Android",
+      "Screen Size": "7\""
     },
     {
-      "id":7,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
-    },
-    {
-      "id":8,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
-    },
-    {
-      "id":9,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
-    },
-    {
-      "id":10,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
-    },
-    {
-      "id":11,
-      "name":"",
-      "description": "",
-      "brand": "",
-      "OS": "",
-      "Screen Size": ""
+      "id": 7,
+      "name": "Samsung Tab S2 ",
+      "description": "The tablet for people that want more. Advanced security with fingerprint recognition. Super amoled display for true to life colours.",
+      "brand": "Samsung",
+      "OS": "Android",
+      "Screen Size": "9.7\""
     }
   ]
 }
