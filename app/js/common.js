@@ -379,3 +379,109 @@ $("button[type='reset']").on('click', function () {
     error.classList.add('hidden');
     success.classList.add('hidden');
 });
+
+// Sales dynamics chart
+
+$(function () {
+    Highcharts.chart('chart', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Sales dynamics'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Sold per day'
+            }
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '2015',
+            color: '#73c4ff',
+            data: [
+                ['Jan', 29.19],
+                ['Feb', 71.50],
+                ['Mar', 106.40],
+                ['Apr', 129.20],
+                ['May', 144.00],
+                ['Jun', 176.00],
+                ['Jul', 135.60],
+                ['Aug', 148.50],
+                ['Sep', 216.40],
+                ['Oct', 194.10],
+                {
+                    name: 'Nov',
+                    y: 95.60,
+                    drilldown: 'nov'
+                },
+                ['Dec', 354.40]
+            ],
+            type: 'line'
+        }, {
+            name: '2016',
+            color: '#ff020a',
+            data: [
+                ['Jan', 69.19],
+                ['Feb', 110.50],
+                ['Mar', 156.40],
+                ['Apr', 142.20],
+                ['May', 150.00],
+                ['Jun', 206.00],
+                ['Jul', 180.60],
+                ['Aug', 165.50],
+                ['Sep', 228.40],
+                ['Oct', 220.10],
+                ['Nov', 145.60],
+                ['Dec', 376.40]
+            ],
+            type: 'line'
+        }],
+        drilldown: {
+            series: [{
+                id: 'nov',
+                name: 'November',
+                data: [
+                    ['1	', 30],
+                    ['2	', 86],
+                    ['3	', 91],
+                    ['4	', 142],
+                    ['5	', 30],
+                    ['6	', 152],
+                    ['7	', 106],
+                    ['8	', 30],
+                    ['9	', 30],
+                    ['10', 30],
+                    ['11', 58],
+                    ['12', 30],
+                    ['13', 30],
+                    ['14', 67],
+                    ['15', 144],
+                    ['16', 41],
+                    ['17', 158],
+                    ['18', 48],
+                    ['19', 82],
+                    ['20', 152],
+                    ['21', 119],
+                    ['22', 183],
+                    ['23', 160],
+                    ['24', 30],
+                    ['25', 147],
+                    ['26', 170],
+                    ['27', 124],
+                    ['28', 104],
+                    ['29', 125],
+                    ['30', 103],
+                    ['31', 163]
+                ]
+            }]
+        }
+    });
+});
