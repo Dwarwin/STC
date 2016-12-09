@@ -45,7 +45,6 @@
                 </ul>
             </li>
         </ul>
-
     </section>
 </nav>
 
@@ -61,7 +60,7 @@
             </header>
             <section class="modal-body">
                 <form id="reg-form" class="form-horizontal" onsubmit="return regSubmit();" novalidate method="post"
-                      action="http://localhost:8080/api/auth/register">
+                      action="http://es-auction.herokuapp.com/api/auth/register">
                     <section class="form-group">
                         <label for="username" class="col-lg-3 control-label">Username:</label>
                         <div class="col-lg-9">
@@ -166,7 +165,7 @@
             </header>
             <section class="modal-body">
                 <form id="login-form" class="form-horizontal" onsubmit="return logSubmit();" method="post"
-                      action="http://localhost:8080/api/auth/login" novalidate>
+                      action="http://es-auction.herokuapp.com/api/auth/login" novalidate>
                     <section class="input-group form-inline">
                         <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                         </label>
@@ -229,6 +228,7 @@
 <section class="modal fade" id="restore-modal" role="dialog">
     <div class="modal-dialog modal-sm">
 
+        <!-- Modal content-->
         <section class="modal-content">
             <header class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
