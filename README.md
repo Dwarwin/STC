@@ -1,8 +1,8 @@
 # STC
 For homeworks
 
-git clone /this repository/
-cd STC
-git fetch && git checkout work
-npm i
-gulp
+1. git clone /this repository/
+2. cd STC
+3. git fetch && git checkout work
+4. npm i
+5. gulp
