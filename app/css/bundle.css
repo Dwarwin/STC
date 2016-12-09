@@ -10,6 +10,7 @@ body {
     background: url("../img/main.jpg");
     background-size: cover;
 }
+
 /*-------------preloader----------------*/
 #page-preloader {
     position: fixed;
@@ -30,6 +31,7 @@ body {
     background: url('../img/preloader.gif') no-repeat;
     background-size: contain;
 }
+
 /*----------/preloader*---------------*/
 a {
     cursor: pointer;
@@ -174,6 +176,10 @@ footer.container-fluid a:hover:not(.btn) {
 }
 
 /*Profile*/
+.profile-body {
+    margin-top: 20px;
+}
+
 td {
     overflow: auto;
 }
