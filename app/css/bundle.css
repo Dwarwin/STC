@@ -10,7 +10,27 @@ body {
     background: url("../img/main.jpg");
     background-size: cover;
 }
+/*-------------preloader----------------*/
+#page-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.71);
+    z-index: 9999;
+}
 
+#page-preloader .spinner {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: url('../img/preloader.gif') no-repeat;
+    background-size: contain;
+}
+/*----------/preloader*---------------*/
 a {
     cursor: pointer;
 }

@@ -1,12 +1,20 @@
-// Avatar change
+
+//Preloader+animated logo
+$(window).on('load', function () {
+    var $preloader = $('#page-preloader'),
+        $spinner   = $preloader.find('.spinner');
+    $spinner.fadeOut();
+    $preloader.delay(350).fadeOut('slow');
+
+    var draw = SVG('drawing').size(45,45);
+    var image = draw.image('img/logo.png');
+    image.size(45, 45);
+    image.mouseover(function() { this.animate(2000).rotate(360)});
+});
 
 $(document).ready(function () {
 
-
-//Preloader
-
-
-// Input avatar
+// Avatar change
 
     var readURL = function (input) {
         if (input.files && input.files[0]) {
