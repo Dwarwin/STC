@@ -22,7 +22,7 @@ $(document).ready(function () {
 
             reader.onload = function (e) {
                 $('.img-thumbnail').attr('src', e.target.result);
-            }
+            };
 
             reader.readAsDataURL(input.files[0]);
         }
