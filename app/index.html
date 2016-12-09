@@ -192,7 +192,8 @@
                     </button>
                     <a data-toggle="modal" data-target="#reg-modal"
                        data-dismiss="modal">Register</a>
-                    <a class="pull-right" href="restorePswd.html">Forgot password?</a>
+                    <a class="pull-right" data-toggle="modal" data-target="#restore-modal"
+                       data-dismiss="modal">Forgot password?</a>
                 </form>
             </section>
             <footer class="modal-footer">
@@ -219,6 +220,44 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h3 id="modalTxt"></h3>
             </div>
+        </section>
+    </div>
+</section>
+
+<!--Restore Password-->
+
+<section class="modal fade" id="restore-modal" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <section class="modal-content">
+            <header class="modal-header text-center">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3>Restore Password</h3>
+            </header>
+            <section class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <section class="input-group form-inline">
+                        <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span></label>
+                        <input type="text" class="form-control" placeholder="Enter your Username" required
+                               pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$"
+                               title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
+                                   can be used but not ends with them"/>
+                    </section>
+                    <section class="input-group form-inline">
+                        <label class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></label>
+                        <input type="email" class="form-control" placeholder="Enter your Email"
+                               required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                               title="Wrong email format"/>
+                    </section>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+                </form>
+                <div class="alert alert-success text-center">
+                    <strong>Success!</strong> Check email for your password.
+                </div>
+                <div class="alert alert-danger text-center">
+                    <strong>Oops!</strong> Something went wrong.
+                </div>
+            </section>
         </section>
     </div>
 </section>
