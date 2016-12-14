@@ -14,6 +14,12 @@ $(window).on('load', function () {
 
 $(document).ready(function () {
 
+    $("#charts").click(function (){
+            $('html, body').animate({
+                scrollTop: $("#footer").offset().top
+            }, 500);
+        });
+
 // Avatar change
 
     var readURL = function (input) {
