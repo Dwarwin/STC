@@ -60,7 +60,7 @@ $.ajax({
                     </section>
                     </div>
                 </section>
-`);
+                `);
 
             $('.lotList').html(lots);
 
