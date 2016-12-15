@@ -1,6 +1,6 @@
 $.ajax({
     type: 'GET',
-    url: '../mockdata/lots.json',
+    url: './mockdata/lots.json',
     data: {get_param: 'value'},
     dataType: 'json',
     success: function (data) {
