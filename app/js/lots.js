@@ -48,7 +48,7 @@ $.ajax({
                             <h2 class="modal-title">${s.name}</h2>
                         </header>
                     <section class="modal-body">
-                    <div class="row lotInfo">
+                    <div class="row lotInfoDescr">
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <img class="img-responsive lotImgDescr" alt="lotImageDescr" src= "img/lots/${s.id + ".jpg"}">
                         </div>
