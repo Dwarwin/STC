@@ -59,8 +59,7 @@
                 <h2 class="modal-title">Please sign up</h2>
             </header>
             <section class="modal-body">
-                <form id="reg-form" class="form-horizontal" onsubmit="return regSubmit();" novalidate method="post"
-                      action="http://es-auction.herokuapp.com/api/auth/register">
+                <form id="reg-form" class="form-horizontal" novalidate>
                     <section class="form-group">
                         <label for="username" class="col-lg-3 control-label">Username:</label>
                         <div class="col-lg-9">
@@ -130,7 +129,7 @@
                                    title="Passwords are not equal" placeholder="Confirm your Password"/>
                         </div>
                     </section>
-                    <input type="checkbox" id="terms" required value="Confirm"/>
+                    <input type="checkbox" id="terms" name="terms" required/>
                     <label for="terms">I accept the <a href="#">terms and conditions</a></label>
                     <button class="btn btn-lg btn-primary btn-block" id="signin-btn" type="submit">Submit
                     </button>
@@ -164,26 +163,26 @@
                 <h2 class="modal-title">Please sign in</h2>
             </header>
             <section class="modal-body">
-                <form id="login-form" class="form-horizontal" onsubmit="return logSubmit();" method="post"
-                      action="http://es-auction.herokuapp.com/api/auth/login" novalidate>
+                <form id="login-form" class="form-horizontal" novalidate>
                     <section class="input-group form-inline">
                         <label class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
                         </label>
-                        <input class="form-control" id="inputUsername" value="" type="text" name="inputUsername"
+                        <input class="form-control" id="inputUsername" value="" type="text" name="username"
                                pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$" required
                                title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
                                           can be used but not ends with them" placeholder="Enter your Username"/>
                     </section>
                     <section class="input-group form-inline">
                         <label class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+                        <input type="password" name="pswd" id="inputPassword" class="form-control"
+                               placeholder="Password"
                                required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
                                title="Must contain at least one number and one uppercase and lowercase letter,
                                                and at least 6 or more characters"/>
                     </section>
                     <section class="checkbox">
                         <label>
-                            <input id="remember_me" type="checkbox" value="remember_me"/> Remember me
+                            <input id="remember_me" name="remember_me" type="checkbox"/> Remember me
                         </label>
                     </section>
                     <button id="anc-login" data-target="#popup" class="btn btn-lg btn-primary btn-block" type="submit">
@@ -300,6 +299,40 @@
 
 <hr>
 
+<!--Lot list-->
+
+<app class="container text-center" id="app">
+    <h2>Lots That May Interest You</h2>
+    <div class="selector-body">
+        <span class="selector">Select Brand:</span>
+        <select id="brandSelect">
+            <option value="All">All brands</option>
+            <option value="Acer">Acer</option>
+            <option value="Amazon">Amazon</option>
+            <option value="Apple">Apple</option>
+            <option value="Lenovo">Lenovo</option>
+            <option value="Samsung">Samsung</option>
+        </select>
+        <!--<span class="selector">Select Operating System:</span>-->
+        <!--<select id="osSelect">-->
+            <!--<option value="All">All OS</option>-->
+            <!--<option value="Android">Android</option>-->
+            <!--<option value="IOS">IOS</option>-->
+            <!--<option value="Windows">Windows</option>-->
+        <!--</select>-->
+    </div>
+    <section class="container text-center lotList">
+        <!--<section class="col-sm-3 lotInfo">-->
+            <!--<a class="toLotDescr" id="${'lot'+elem.id}"><img class="img-responsive lotImg" alt="lotImage" src= "img/lots/${elem.id + ".jpg"}">-->
+                <!--<h3>${elem.name}</h3>-->
+            <!--</a>-->
+        <!--</section>-->
+    </section>
+
+</app>
+
+<hr>
+
 <!--News section-->
 
 <section id="latestNews" class="container text-center">
@@ -372,6 +405,7 @@
         <p id="copyright" class="col-sm-12"><br><em>Copyright &copy; 2016. Auctioneer. All rights reserved.</em></p>
     </div>
 </footer>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.3.6/svg.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -380,5 +414,7 @@
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="js/common.js"></script>
+<script src="js/eventHandlers.js"></script>
+<script src="js/lots.js"></script>
 </body>
 </html>

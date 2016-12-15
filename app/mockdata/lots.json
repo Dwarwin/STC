@@ -1,5 +1,4 @@
-{
-  "lots": [
+[
     {
       "id": 0,
       "name": "Apple iPad Air 2",
@@ -65,4 +64,3 @@
       "Screen Size": "9.7\""
     }
   ]
-}

@@ -9,6 +9,12 @@ body {
     padding: 0 !important;
     background: url("../img/main.jpg");
     background-size: cover;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 48px;
+    font-weight: bold;
 }
 
 /*-------------preloader----------------*/
@@ -121,16 +127,38 @@ nav a {
     font-weight: 700;
 }
 
-section.container h2 {
-    font-size: 48px;
-    font-weight: bold;
-}
-
 section.container figcaption {
     font-size: 36px;
     font-weight: bold;
     color: #ff4d00;
 }
+
+/*Lots list*/
+
+.selector {
+    margin: 0 10px;
+
+}
+
+.lotList{
+    margin-top: 50px;
+}
+
+.toLotDescr  {
+    color: black;
+}
+
+.toLotDescr:hover {
+    text-decoration: none;
+    color: #ff4d00;
+}
+
+.lotImg {
+    margin: 0 auto;
+    width: auto;
+    height: 150px;
+}
+/*-----END lotlist-----*/
 
 article.col-md-4 {
     margin-bottom: 20px;
