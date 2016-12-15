@@ -140,11 +140,11 @@ section.container figcaption {
 
 }
 
-.lotList{
+.lotList {
     margin-top: 50px;
 }
 
-.toLotDescr  {
+.toLotDescr {
     color: black;
 }
 
@@ -158,6 +158,17 @@ section.container figcaption {
     width: auto;
     height: 150px;
 }
+
+.lotImgDescr {
+    margin: 10px auto;
+    width: auto;
+    height: 250px;
+}
+.lotInfo {
+display: flex;
+align-items: center;
+}
+
 /*-----END lotlist-----*/
 
 article.col-md-4 {
