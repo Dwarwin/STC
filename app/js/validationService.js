@@ -1,6 +1,6 @@
 // import {CONF} from "config";
 
-class ValidateAll {
+class Validation {
     constructor(config) {
 
     }

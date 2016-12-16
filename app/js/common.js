@@ -1,24 +1,24 @@
+$(document).ready(function () {
 
 //Preloader+animated logo
-$(window).on('load', function () {
+
     var $preloader = $('#page-preloader'),
-        $spinner   = $preloader.find('.spinner');
+        $spinner = $preloader.find('.spinner');
     $spinner.fadeOut();
     $preloader.delay(350).fadeOut('slow');
 
-    var draw = SVG('drawing').size(45,45);
+    var draw = SVG('drawing').size(45, 45);
     var image = draw.image('img/logo.png');
     image.size(45, 45);
-    image.mouseover(function() { this.animate(2000).rotate(360)});
-});
+    image.mouseover(function () {
+        this.animate(2000).rotate(360)
+    });
 
-$(document).ready(function () {
-
-    $("#charts").click(function (){
-            $('html, body').animate({
-                scrollTop: $("#footer").offset().top
-            }, 500);
-        });
+    $("#charts").click(function () {
+        $('html, body').animate({
+            scrollTop: $("#footer").offset().top
+        }, 500);
+    });
 
 // Avatar change
 
@@ -427,40 +427,132 @@ $(function () {
             name: '2015',
             color: '#73c4ff',
             data: [
-                ['Jan', 29.19],
-                ['Feb', 71.50],
-                ['Mar', 106.40],
-                ['Apr', 129.20],
-                ['May', 144.00],
-                ['Jun', 176.00],
-                ['Jul', 135.60],
-                ['Aug', 148.50],
-                ['Sep', 216.40],
-                ['Oct', 194.10],
+                {
+                    name: 'Jan',
+                    y: 29.19,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Feb',
+                    y: 74.50,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Mar',
+                    y: 106.40,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Apr',
+                    y: 129.20,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'May',
+                    y: 144.00,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Jun',
+                    y: 176.00,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Jul',
+                    y: 165.60,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Aug',
+                    y: 148.50,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Sep',
+                    y: 216.40,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Oct',
+                    y: 194.10,
+                    drilldown: 'nov'
+                },
                 {
                     name: 'Nov',
                     y: 95.60,
                     drilldown: 'nov'
                 },
-                ['Dec', 354.40]
+                {
+                    name: 'Dec',
+                    y: 354.40,
+                    drilldown: 'nov'
+                },
             ],
             type: 'line'
         }, {
             name: '2016',
             color: '#ff020a',
             data: [
-                ['Jan', 69.19],
-                ['Feb', 110.50],
-                ['Mar', 156.40],
-                ['Apr', 142.20],
-                ['May', 150.00],
-                ['Jun', 206.00],
-                ['Jul', 180.60],
-                ['Aug', 165.50],
-                ['Sep', 228.40],
-                ['Oct', 220.10],
-                ['Nov', 145.60],
-                ['Dec', 376.40]
+                {
+                    name: 'Jan',
+                    y: 69.19,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Feb',
+                    y: 110.50,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Mar',
+                    y: 156.40,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Apr',
+                    y: 142.20,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'May',
+                    y: 150.00,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Jun',
+                    y: 206.00,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Jul',
+                    y: 180.60,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Aug',
+                    y: 165.50,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Sep',
+                    y: 228.40,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Oct',
+                    y: 220.10,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Nov',
+                    y: 145.60,
+                    drilldown: 'nov'
+                },
+                {
+                    name: 'Dec',
+                    y: 376.40,
+                    drilldown: 'nov'
+                },
             ],
             type: 'line'
         }],

@@ -1,4 +1,4 @@
-// import {ValidateAll} from "validationService";
+// import {Validation} from "validationService";
 
 $("form").submit(function () {
     var formData = {};
@@ -6,5 +6,5 @@ $("form").submit(function () {
     $.each(inputs, function (i, input) {
         formData[input.name] = input.value;
     });
-    ValidateAll(formData);
+    let validation = new Validation(formData)
 });
