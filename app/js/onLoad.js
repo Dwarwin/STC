@@ -32,4 +32,28 @@ $(document).ready(function () {
         }, 500);
     });
 
+// Link to profile
+
+    $('.profileLink').on('click', function () {
+        $.ajax({
+            url: './templates/profile.html',
+            type: 'GET',
+            dataType: 'html',
+
+            success: function (data) {
+                history.pushState(data, "profile", "#profile");
+                $('body').css("display", "none").fadeIn(500);
+                $('app').html(data);
+            },
+        });
+        $('html, body').animate({
+            scrollTop: $("body").offset().top
+        }, 100);
+    });
+    $(window).on("load", function(){
+        history.pushState({url: 'index'}, "", "/");
+    });
+    $(window).on("popstate", function(){
+        location.reload();
+    });
 });
