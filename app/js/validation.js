@@ -119,7 +119,7 @@ $('#login-form input').on('blur', e => {
 });
 
 function invalid (input) {
-    let result, errorMessage = input.parentNode;
+    let errorMessage = input.parentNode;
     errorMessage.classList.remove('has-success');
     errorMessage.classList.add('has-error');
     $(input).tooltip({
