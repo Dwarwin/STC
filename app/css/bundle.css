@@ -111,9 +111,9 @@ nav a {
     font-weight: bold;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
     .jumbotron h1 {
-        font-size: 48px;
+        font-size: 42px;
     }
 
     .navbar-nav .open .dropdown-menu {
@@ -137,20 +137,35 @@ section.container figcaption {
 
 .selector {
     margin: 0 10px;
-
+    white-space: nowrap;
 }
 
-.lotList{
+select {
+    margin: 5px 0;
+}
+
+.lotList {
     margin-top: 50px;
 }
 
-.toLotDescr  {
+.lotInfo {
+    min-height: 240px;
+    display: none;
+
+}
+
+.toLotDescr {
     color: black;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .toLotDescr:hover {
     text-decoration: none;
     color: #ff4d00;
+    -webkit-transform: scale(1.15);
+    -ms-transform: scale(1.15);
+    transform: scale(1.15);
 }
 
 .lotImg {
@@ -158,22 +173,32 @@ section.container figcaption {
     width: auto;
     height: 150px;
 }
+
 .lotImgDescr {
-    margin: 0 auto;
+    margin: 10px auto;
     width: auto;
     height: 250px;
 }
-.lotInfoDescr {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+
+.next a, .previous a {
+    color: #000000;
 }
+
 /*-----END lotlist-----*/
+
+.newsList {
+    min-height: 600px;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+.newsImg {
+    height: 250px;
+    margin: 0 auto;
+}
 
 article.col-md-4 {
     margin-bottom: 20px;
@@ -182,6 +207,7 @@ article.col-md-4 {
 article.col-md-4 h3 {
     font-size: 26px;
     font-weight: 700;
+    margin-bottom: 30px;
 }
 
 article.col-md-4 p {
@@ -190,6 +216,20 @@ article.col-md-4 p {
 }
 
 article.col-md-4 a {
+    margin: 1em auto;
+    display: inline-block;
+}
+
+article.col-md-4 a:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+article.col-md-4 a img {
+    height: 35px;
+}
+
+.newsDetails {
     float: right;
 }
 
@@ -235,6 +275,11 @@ tr:nth-child(even) {
     font-size: 14px;
     min-width: 100px;
     max-width: 100%;
+}
+
+.avatar {
+    height: 300px;
+    width: auto;
 }
 
 /*RePswd*/

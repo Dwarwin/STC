@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglifyjs'),
+    babel  = require('gulp-babel'),
     cssnano = require('gulp-cssnano'),
     rename = require('gulp-rename'),
     del = require('del'),
@@ -20,20 +21,21 @@ gulp.task('css', function () {
 gulp.task('browser-sync', function () {
     browserSync({
         server: {
-            baseDir: 'app'
+            baseDir: 'dist'
         },
         notify: false
     });
 });
 
-// gulp.task('scripts', function () {
-//     return gulp.src('app/js/*.js')
-//         .pipe(concat('common.min.js'))
-//         .pipe(uglify())
-//         .pipe(gulp.dest('app/js'));
-// });
+gulp.task('scripts', function () {
+    return gulp.src('app/js/*.js')
+        .pipe(babel({presets: ['es2015']}))
+        .pipe(uglify())
+        .pipe(concat('common.min.js'))
+        .pipe(gulp.dest('dist/js'));
+});
 
-gulp.task('watch', ['browser-sync', 'css'], function () {
+gulp.task('watch', ['browser-sync', 'css', 'scripts'], function () {
     gulp.watch('app/*.html', browserSync.reload);
     gulp.watch('app/css/**/*.css', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
@@ -54,7 +56,7 @@ gulp.task('img', function () {
         .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['clean', 'img', 'css'], function () {
+gulp.task('build', ['clean', 'img', 'css', 'scripts'], function () {
 
     var buildCss = gulp.src('app/css/**/*')
         .pipe(gulp.dest('dist/css'));
@@ -62,12 +64,20 @@ gulp.task('build', ['clean', 'img', 'css'], function () {
     var buildFonts = gulp.src('app/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
 
-    var buildJs = gulp.src('app/js/**/*')
+    var buildJs = gulp.src('app/js/common.min.js')
         .pipe(gulp.dest('dist/js'));
 
-    var buildHtml = gulp.src('app/*.html')
+    var buildLibs = gulp.src('app/js/libs/*')
+        .pipe(gulp.dest('dist/js/libs'));
+
+    var buildHtml = gulp.src('app/*/*.html')
         .pipe(gulp.dest('dist'));
 
+    var buildIndexHtml = gulp.src('app/*.html')
+        .pipe(gulp.dest('dist'));
+
+    var buildJson = gulp.src('app/*/*.json')
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('clear', function () {

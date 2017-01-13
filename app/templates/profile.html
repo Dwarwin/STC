@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/bundle.css">
-    <link rel=icon href=img/logo.png sizes="16x16" type="image/png">
-</head>
-<body>
 <section class="container profile-body">
-    <a class="btn btn-default pull-left" href="index.html">Back</a>
-    <button class="btn btn-danger pull-right">Remove Account</button>
+    <a class="btn btn-default pull-left backToHome" href="index.html">Back</a>
+    <button class="btn btn-danger pull-right logOut">Remove Account</button>
     <header class="row">
         <h1 class="page-header text-center">Edit Profile</h1>
     </header>
@@ -20,7 +8,7 @@
         <!-- Avatar left column -->
         <div class="col-md-4 col-sm-6 col-xs-12">
             <figure class="text-center">
-                <img src="img/no_ava.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                <img src="../img/no_ava.png" class="avatar img-circle img-thumbnail" alt="avatar">
                 <figcaption>Upload your photo</figcaption>
                 <input type="file" class="text-center center-block well well-sm file-upload"/>
             </figure>
@@ -35,48 +23,43 @@
             </div>
             <h3>Personal info</h3>
             <hr>
-            <form class="form-horizontal" onsubmit="return regSubmit();" method="post" action="#" novalidate>
+            <form class="form-horizontal" id="profile-form" action="#" novalidate>
                 <section class="form-group">
                     <label for="username" class="col-lg-3 control-label">Username:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" id="username" value="" type="text" name="username" required
-                               pattern="(?=^.{3,20}$)^[a-zA-Z][a-zA-Z0-9]*[\s._-]?[a-zA-Z0-9]+$"
+                        <input class="form-control" id="username" type="text" name="username" required
                                title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
-                                       can be used but not ends with them"/>
+                                       can be used but not ends with them" value="TestUser" />
                     </div>
                 </section>
                 <section class="form-group">
                     <label for="firstName" class="col-lg-3 control-label">First name:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" id="firstName" value="" type="text" name="firstName" required
-                               pattern="(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$"
+                        <input class="form-control" id="firstName" type="text" name="firstName" required
                                title="Starts with uppercase letter, from 2 to 20 symbols,
-                                       can be separated by space or -"/>
+                                       can be separated by space or -" value="Test" />
                     </div>
                 </section>
                 <section class="form-group">
                     <label for="lastName" class="col-lg-3 control-label">Last name:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" id="lastName" value="" type="text" name="lastName" required
-                               pattern="(?=^.{2,20}$)^[A-Z]*[a-zA-Z0-9]*[\s-]?[A-Z][a-zA-Z0-9]+$"
+                        <input class="form-control" id="lastName" type="text" name="lastName" required
                                title="Starts with uppercase letter, from 2 to 20 symbols,
-                                       can be separated by space or -"/>
+                                       can be separated by space or -" value="Test"/>
                     </div>
                 </section>
                 <section class="form-group">
                     <label for="email" class="col-lg-3 control-label">Email:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" id="email" value="" type="text" name="email"
-                               required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                               title="Wrong email format"/>
+                        <input class="form-control" id="email" type="text" name="email" required
+                               title="Wrong email format" value="test@test.com"/>
                     </div>
                 </section>
                 <section class="form-group">
                     <label for="bday" class="col-lg-3 control-label">Birthday:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" id="bday" value="" type="text" name="bday"
-                               required pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d"
-                               title="Invalid date format" placeholder="dd.mm.yyyy"/>
+                        <input class="form-control" id="bday" type="text" name="bday" required
+                               title="Invalid date format" placeholder="dd.mm.yyyy" value="01.01.2000"/>
                     </div>
                 </section>
                 <section class="form-group">
@@ -89,10 +72,9 @@
                     </div>
                 </section>
                 <section class="form-group">
-                    <label for="pswd" class="col-md-3 control-label">Password:</label>
+                    <label for="pswd" class="col-md-3 control-label">New password:</label>
                     <div class="col-md-8">
-                        <input class="form-control" id="pswd" value="" type="password" name="pswd"
-                               required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        <input class="form-control" id="pswd" type="password" name="pswd" required
                                title="Must contain at least one number and one uppercase and lowercase letter,
                                        and at least 6 or more characters"/>
                     </div>
@@ -100,8 +82,7 @@
                 <section class="form-group">
                     <label for="repswd" class="col-md-3 control-label">Confirm password:</label>
                     <div class="col-md-8">
-                        <input class="form-control" id="repswd" value="" type="password" name="repswd"
-                               required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+                        <input class="form-control" id="repswd" type="password" name="repswd" required
                                title="Passwords are not equal"/>
                     </div>
                 </section>
@@ -120,39 +101,32 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th class="col-md-2 text-center">Event</th>
                         <th class="col-md-3 text-center">Date</th>
-                        <th class="col-md-7 text-center">Details</th>
+                        <th class="col-md-9 text-center">Event</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td></td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -162,8 +136,7 @@
         </section>
     </section>
 </section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="js/common.js"></script>
-</body>
-</html>
+
+<script src="js/common.min.js"></script>
+<!--<script src="js/onLoad.js"></script>-->
+<!--<script src="js/avatar.js"></script>-->
