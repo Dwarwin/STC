@@ -1,0 +1,142 @@
+<section class="container profile-body">
+    <a class="btn btn-default pull-left backToHome" href="index.html">Back</a>
+    <button class="btn btn-danger pull-right logOut">Remove Account</button>
+    <header class="row">
+        <h1 class="page-header text-center">Edit Profile</h1>
+    </header>
+    <section class="row">
+        <!-- Avatar left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <figure class="text-center">
+                <img src="../img/no_ava.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                <figcaption>Upload your photo</figcaption>
+                <input type="file" class="text-center center-block well well-sm file-upload"/>
+            </figure>
+        </div>
+        <!-- Personal info -->
+        <section class="col-md-8 col-sm-6 col-xs-12 personal-info">
+            <div class="alert alert-success text-center hidden" id="alertSuc">
+                <strong>Success!</strong> Profile can be updated.
+            </div>
+            <div class="alert alert-danger text-center hidden" id="alertErr">
+                <strong>Oops!</strong> Something went wrong.
+            </div>
+            <h3>Personal info</h3>
+            <hr>
+            <form class="form-horizontal" id="profile-form" action="#"
+                  novalidate>
+                <section class="form-group">
+                    <label for="username" class="col-lg-3 control-label">Username:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" id="username" type="text" name="username" required
+                               title="Starts with letter, from 3 to 20 symbols, one of spaces and ._- symbols
+                                       can be used but not ends with them" value="TestUser" />
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label for="firstName" class="col-lg-3 control-label">First name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" id="firstName" type="text" name="firstName" required
+                               title="Starts with uppercase letter, from 2 to 20 symbols,
+                                       can be separated by space or -" value="Test" />
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label for="lastName" class="col-lg-3 control-label">Last name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" id="lastName" type="text" name="lastName" required
+                               title="Starts with uppercase letter, from 2 to 20 symbols,
+                                       can be separated by space or -" value="Test"/>
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label for="email" class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" id="email" type="text" name="email" required
+                               title="Wrong email format" value="test@test.com"/>
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label for="bday" class="col-lg-3 control-label">Birthday:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" id="bday" type="text" name="bday" required
+                               title="Invalid date format" placeholder="dd.mm.yyyy" value="01.01.2000"/>
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label class="col-md-3 control-label">Sex:</label>
+                    <div class="col-lg-8">
+                        <input type="radio" name="sex" value="Male" id="male" checked/>
+                        <label for="male">Male</label>
+                        <input type="radio" name="sex" value="Female" id="female"/>
+                        <label for="female">Female</label>
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label for="pswd" class="col-md-3 control-label">New password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="pswd" type="password" name="pswd" required
+                               title="Must contain at least one number and one uppercase and lowercase letter,
+                                       and at least 6 or more characters"/>
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label for="repswd" class="col-md-3 control-label">Confirm password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" id="repswd" type="password" name="repswd" required
+                               title="Passwords are not equal"/>
+                    </div>
+                </section>
+                <section class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                        <span></span>
+                        <button class="btn btn-default" type="reset">Cancel</button>
+                    </div>
+                </section>
+                <hr>
+            </form>
+            <section class="row text-center">
+                <h3>Account Activity</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="col-md-3 text-center">Date</th>
+                        <th class="col-md-9 text-center">Event</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </section>
+</section>
+
+<script src="js/onLoad.js"></script>
+<script src="js/profile.js"></script>
